@@ -32,6 +32,7 @@ public class GameService {
 	}
 	@Transactional(readOnly = true)
 	public List<GameMinDto> findGameByIdList(Long id){
+		//Aqui é uma lista dado o id de uma lista
 		List<GameMinProjection> result = repository.searchByList(id);													// kd game sera estanciado no GameMinDto
 		List<GameMinDto> dto = result.stream().map(game -> new GameMinDto(game)).toList();
 		return dto;
